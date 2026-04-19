@@ -31,4 +31,7 @@ Then access http://127.0.0.1:8000/search.html
 
 # Read via CLI
 
-poetry run python dataanalyzer.py --db internet.db --search "link=*github*" --title --tags
+```
+poetry run python dataanalyzer.py --db table.db --search "link=*github*" --title --tags
+```
+Remember to correctly specify db table name
