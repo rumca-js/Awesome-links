@@ -31,7 +31,7 @@ make server
 
 Then access http://127.0.0.1:8000/search.html
 
-# Read via CLI
+# Read via CLI [Under construction]
 
 ```
 poetry run python dataanalyzer.py --db table.db --search "link=*github*" --title --tags
