@@ -1,5 +1,5 @@
 # Define variables
-ARCHIVE_NAME = table.db.zip
+ARCHIVE_NAME = awesomelists.db.zip
 SOURCE_FILE = table.db
 
 # Declare phony targets
