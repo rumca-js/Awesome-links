@@ -7,7 +7,7 @@ SOURCE_FILE = table.db
 
 # Rule to create a zip archive split into 50MB parts
 zip:
-	zip -s 50m $(ARCHIVE_NAME) $(SOURCE_FILE)
+	zip $(ARCHIVE_NAME) $(SOURCE_FILE)
 	echo "Packed $(SOURCE_FILE) into $(ARCHIVE_NAME)"
 	rm -f $(SOURCE_FILE)
 
@@ -50,19 +50,3 @@ example-search:
 	poetry run python ./dataanalyzer.py --db internet.db --search "*Warhammer*" --tags --social --title --description --status
 example-search2:
 	poetry run python ./dataanalyzer.py --db internet.db --search "*youtube.com/channel*" --title --tags --social
-
-download-data:
-	wget https://github.com/plenaryapp/awesome-rss-feeds/archive/refs/heads/master.zip
-	7z x master.zip
-	rm master.zip
-
-merge:
-	poetry run python dbfeeds.py --convert --db places.db --output-db converted.db
-	poetry run python dbfeeds.py --merge --merge-db converted.db --old-feeds-db feeds.db --output-db feeds_new.db
-	rm feeds.db
-	mv feeds_new.db feeds.db
-	rm converted.db
-	rm places.db
-
-update:
-	poetry run python dbfeeds.py --update --db feeds.db
